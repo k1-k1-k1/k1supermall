@@ -10,72 +10,7 @@
              :titles="['流行','新款','精选']"
              @tabClick="tabClick"/>
   <goods-list :goods-list="showgoods" />
-  <ul>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-    <li>sajijd</li>
-  </ul>
+
 </div>
 
 </template>
@@ -92,7 +27,7 @@
 
   import {getHomeMultidata,getHomeGoods} from "network/home";
   export default {
-    name: "home",
+    name: "Home",
     components:{
       RecommendView,
       FeatureView,
@@ -124,8 +59,6 @@
       this.getHomeGoods('pop')
       this.getHomeGoods('new')
       this.getHomeGoods('sell')
-
-
     },
     methods:{
       getHomeMultidata(){
@@ -167,12 +100,12 @@
   }
 .home-nav{
   background-color: var(--color-tint);
-  color: #f8f9fa;
+  color: #fff;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 9;
 }
   .tabcontrol{
     position: sticky;
