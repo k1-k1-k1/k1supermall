@@ -3,6 +3,7 @@
 <goods-list-item v-for="(item,index) in goodsList"
                  :key="index"
                  :goods="item"/>
+<!--  多了个东西，搞了一天bug-->
 <!--  {{goodsList}}-->
 </div>
 
