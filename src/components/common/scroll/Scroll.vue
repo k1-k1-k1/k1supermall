@@ -22,10 +22,6 @@
           return []
         }
       },
-      pullUpLoad: {
-        type: Boolean,
-        default: false
-      }
     },
     data() {
       return {
@@ -42,10 +38,6 @@
       this.scroll.on('scroll', (pos) => {
         this.$emit('scroll', pos)
       })
-      this.scroll.on('pullingUp', () => {
-        console.log('上拉加载');
-        this.$emit('pullingUp')
-      })
     },
     methods: {
       __initScroll() {
@@ -60,13 +52,13 @@
 
       },
       refresh() {
-        this.scroll.refresh()
+        this.scroll && this.scroll.refresh()
       },
       finishPullUp() {
         this.scroll.finishPullUp()
       },
       scrollTo(x, y, time = 500) {
-        this.scroll.scrollTo(x, y, time)
+        this.scroll && this.scroll.scrollTo(x, y, time)
       }
     },
     watch: {

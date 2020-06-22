@@ -75,6 +75,12 @@
       this.getHomeGoods('new')
       this.getHomeGoods('sell')
     },
+    mounted() {
+      this.$bus.$on('itemImageLoad',()=>{
+        this.$refs.scroll.refresh()
+        console.log('-----');
+      })
+    },
     methods:{
       getHomeMultidata(){
         getHomeMultidata().then(res=>{
@@ -89,7 +95,7 @@
           // console.log(res.data)
           this.goods[type].list.push(...res.data.list)
           this.goods[type].page+=1
-          this.$refs.scroll.finishPullUp()
+          // this.$refs.scroll.finishPullUp()
         })
       },
       tabClick(index){
