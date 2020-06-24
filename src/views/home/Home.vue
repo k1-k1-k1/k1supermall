@@ -35,7 +35,8 @@
   import GoodsList from "../../components/content/goods/GoodsList";
   import Scroll from "../../components/common/scroll/Scroll";
   import BackTop from "../../components/content/backTop/BackTop";
-  import {debounce} from "../../components/common/utils";
+
+  import {debounce} from "../../common/utils";
   import {getHomeMultidata,getHomeGoods} from "network/home";
 
   export default {
