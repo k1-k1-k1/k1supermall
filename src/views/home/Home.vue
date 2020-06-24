@@ -7,7 +7,6 @@
         ref="scroll"
         @scroll="contentScroll"
         @pullingUp="loadMore"
-        :data="showgoods"
         :pull-up-load="true"
         :probe-type="3">
   <div>
@@ -36,8 +35,9 @@
   import GoodsList from "../../components/content/goods/GoodsList";
   import Scroll from "../../components/common/scroll/Scroll";
   import BackTop from "../../components/content/backTop/BackTop";
-
+  import {debounce} from "../../components/common/utils";
   import {getHomeMultidata,getHomeGoods} from "network/home";
+
   export default {
     name: "Home",
     components:{
@@ -76,12 +76,23 @@
       this.getHomeGoods('sell')
     },
     mounted() {
+      const refresh=this.debounce(this.$refs.scroll.refresh,50)
       this.$bus.$on('itemImageLoad',()=>{
-        this.$refs.scroll.refresh()
-        console.log('-----');
+        refresh()
       })
     },
     methods:{
+      debounce(func,delay){
+        let timer=null
+
+        return function (...args) {
+          if (timer) clearTimeout(timer)
+          timer=setTimeout(()=>{
+            func.apply(this,args)
+          },delay)
+        }
+
+      },
       getHomeMultidata(){
         getHomeMultidata().then(res=>{
           // console.log(res);
@@ -95,7 +106,7 @@
           // console.log(res.data)
           this.goods[type].list.push(...res.data.list)
           this.goods[type].page+=1
-          // this.$refs.scroll.finishPullUp()
+          this.$refs.scroll.finishPullUp()
         })
       },
       tabClick(index){
@@ -117,7 +128,7 @@
       },
       loadMore() {
         this.getHomeGoods(this.currentType)
-        this.$refs.scroll.refresh()
+        console.log('jiazaigengduo');
       },
       backTop() {
         this.$refs.scroll.scrollTo(0, 0)
